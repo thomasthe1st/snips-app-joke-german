@@ -1,4 +1,4 @@
-import ConfigParser
+import configparser
 import io
 
 CONFIGURATION_ENCODING_FORMAT = "utf-8"
