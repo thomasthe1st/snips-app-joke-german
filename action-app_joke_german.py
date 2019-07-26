@@ -18,7 +18,7 @@ MQTT_ADDR = "{}:{}".format(MQTT_IP_ADDR, str(MQTT_PORT))
 
 class JokeGerman(object):
     """Class used to wrap action code with mqtt connection
-        
+
         Please change the name refering to your application
     """
 
@@ -31,13 +31,13 @@ class JokeGerman(object):
 
         # start listening to MQTT
         self.start_blocking()
-        
+
     # --> Sub callback function, one per intent
     def askJoke_callback(self, hermes, intent_message):
         # terminate the session first if not continue
         hermes.publish_end_session(intent_message.session_id, "")
-        
-        # action code goes here...        
+
+        # action code goes here...
         good_category = requests.get("https://api.chucknorris.io/jokes/categories").json();
 
         category = None
@@ -54,16 +54,22 @@ class JokeGerman(object):
             joke_msg = str(requests.get("https://api.chucknorris.io/jokes/random?category={}".format(category))\
                                                                     .json().get("value"))
 
+#        JOKE_MSG = STR(REQUESTS.GET("HTTP://WWW.FUNNY4YOU.AT/WEBMASTERPROGRAMMzufallswitz.php"))
+
+        f= open("test-app.txt","w+")
+        f.write("%s \r\n" %joke_msg )
+        f.close()
+
         # if need to speak the execution result by tts
         hermes.publish_start_session_notification(intent_message.site_id, joke_msg, "Joke_German_APP")
 
-    
+
     # --> Master callback function, triggered everytime an intent is recognized
     def master_intent_callback(self,hermes, intent_message):
         coming_intent = intent_message.intent.intent_name
-        if coming_intent == 'askJoke':
+        if coming_intent == 'thomasthefirst:askJoke':
             self.askJoke_callback(hermes, intent_message)
-        
+
 
     # --> Register callback function and start MQTT
     def start_blocking(self):
@@ -71,4 +77,4 @@ class JokeGerman(object):
             h.subscribe_intents(self.master_intent_callback).start()
 
 if __name__ == "__main__":
-    Template()
+    JokeGerman()
