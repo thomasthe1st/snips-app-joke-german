@@ -1,6 +1,5 @@
 # Bindings for the hermes protocol 
 hermes-python>=0.1
 
-snipsTools
 requests
 # More dependency goes here.. 
