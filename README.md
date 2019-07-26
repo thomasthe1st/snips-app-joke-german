@@ -5,8 +5,8 @@
 
 ## Contributing
 
-Please see the [Contribution Guidelines](https://github.com/snipsco/snips-app-template-py/blob/master/CONTRIBUTING.md).
+Please see the [Contribution Guidelines](https://github.com/snipsco/snips-app-joke-german/blob/master/CONTRIBUTING.md).
 
 ## Copyright
 
-This library is provided by [Snips](https://www.snips.ai) as Open Source software. See [LICENSE](https://github.com/snipsco/snips-app-template-py/blob/master/LICENSE) for more information.
+This library is provided by [Snips](https://www.snips.ai) as Open Source software. See [LICENSE](https://github.com/snipsco/snips-app-joke-german/blob/master/LICENSE) for more information.
